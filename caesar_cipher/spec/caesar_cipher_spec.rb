@@ -13,5 +13,9 @@ RSpec.describe 'Caesar Cipher' do
       text_to_cipher = 'hello'
       expect(caesar_cipher(text_to_cipher, 1)).to eq 'ifmmp'
     end
+    it 'Cipher with key 1 should go from z to a' do
+      text_to_cipher = 'lazy'
+      expect(caesar_cipher(text_to_cipher, 1)).to eq 'mbaz'
+    end
   end
 end
