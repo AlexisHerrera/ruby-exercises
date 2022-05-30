@@ -23,5 +23,9 @@ RSpec.describe 'Caesar Cipher' do
       text_to_cipher = 'hello'
       expect(caesar_cipher(text_to_cipher, 2)).to eq 'jgnnq'
     end
+    it 'Cipher should be the same if key is 26' do
+      text_to_cipher = 'hello'
+      expect(caesar_cipher(text_to_cipher, 26)).to eq 'hello'
+    end
   end
 end
