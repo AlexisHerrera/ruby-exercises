@@ -28,4 +28,17 @@ RSpec.describe 'Caesar Cipher' do
       expect(caesar_cipher(text_to_cipher, 26)).to eq 'hello'
     end
   end
+  describe 'Caesar Cipher should keep the same case' do
+    it 'Text in caps' do
+      text_to_cipher = 'HELLO'
+      expect(caesar_cipher(text_to_cipher, 0)).to eq 'HELLO'
+    end
+  end
+
+  describe 'Caesar Cipher should cipher more a text with spaces' do
+    it 'Text with spaces' do
+      text_to_cipher = 'hello world'
+      expect(caesar_cipher(text_to_cipher, 1)).to eq 'ifmmp xpsme'
+    end
+  end
 end
