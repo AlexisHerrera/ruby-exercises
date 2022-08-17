@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: hacer la superclass Cell
 class Cell
   def empty?
     false

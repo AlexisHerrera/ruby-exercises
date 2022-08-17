@@ -10,3 +10,4 @@ TicTacToe.new.start_game
 # 3. que el Move tambien incluya otros datos como metadata (que jugador -> que simbolo hacer, etc)
 # 4. Testear el move (validar gets)
 # 5. Hacer 1 caso para testear la UI (https://www.codewithjason.com/test-ruby-methods-involve-puts-gets/)
+# 6. El print_board, que cada caso sea un if else .. etc
