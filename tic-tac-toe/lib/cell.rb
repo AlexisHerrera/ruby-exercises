@@ -4,7 +4,12 @@ class Cell
   def empty?
     false
   end
-  def is_cross_cell?
+
+  def cross_cell?
+    false
+  end
+
+  def circle_cell?
     false
   end
 end
@@ -28,7 +33,7 @@ class CrossCell < Cell
     self.class == other.class
   end
 
-  def is_cross_cell?
+  def cross_cell?
     true
   end
 end
@@ -36,5 +41,9 @@ end
 class CircleCell < Cell
   def ==(other)
     self.class == other.class
+  end
+
+  def circle_cell?
+    true
   end
 end

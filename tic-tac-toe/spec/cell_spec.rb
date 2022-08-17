@@ -21,7 +21,7 @@ end
 
 describe 'Cross cell' do
   it 'should return true when is_cross_cell is called' do
-    expect(CrossCell.new.is_cross_cell?).to eq true
+    expect(CrossCell.new.cross_cell?).to eq true
   end
   it 'should return false when is_empty is called' do
     expect(CrossCell.new.empty?).to eq false
