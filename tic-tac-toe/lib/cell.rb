@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
 # TODO: hacer la superclass Cell
-class EmptyCell
+class Cell
+  def empty?
+    false
+  end
+  def is_cross_cell?
+    false
+  end
+end
+
+class EmptyCell < Cell
   def mark_as_cross_cell
     CrossCell.new
   end
@@ -13,13 +22,9 @@ class EmptyCell
   def empty?
     true
   end
-
-  def is_cross_cell?
-    false
-  end
 end
 
-class CrossCell
+class CrossCell < Cell
   def ==(other)
     self.class == other.class
   end
@@ -27,13 +32,9 @@ class CrossCell
   def is_cross_cell?
     true
   end
-
-  def empty?
-    false
-  end
 end
 
-class CircleCell
+class CircleCell < Cell
   def ==(other)
     self.class == other.class
   end
