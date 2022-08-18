@@ -9,17 +9,16 @@ class TicTacToe
   def initialize
     @board = Board.new
     @board_analyzer = BoardAnalyzer.new(@board)
+    @players = [PlayerOne.new, PlayerTwo.new]
   end
 
   def start_game
-    players = [Player::ONE, Player::TWO]
-    messages = ['Player 1 moves. For example a valid move is: 1 1', 'Player 2 moves. For example a valid move is: 0 0']
     turn = 0
     loop do
       print_board
-      puts messages[turn % 2]
+      print_message_turn(turn)
       move_input = gets.chomp
-      @board.make_move(Move.new(move_input, players[turn % 2]))
+      @board.make_move(Move.new(move_input, get_player(turn)))
       turn += 1
       break if @board_analyzer.game_finished?
     end
@@ -35,5 +34,16 @@ class TicTacToe
       end
       puts ' '
     end
+  end
+
+  private
+
+  def print_message_turn(turn)
+    messages = ['Player 1 moves. For example a valid move is: 1 1', 'Player 2 moves. For example a valid move is: 0 0']
+    puts messages[turn % 2]
+  end
+
+  def get_player(turn)
+    @players[turn % 2]
   end
 end

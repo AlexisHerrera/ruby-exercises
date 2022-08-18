@@ -27,11 +27,10 @@ class Board
 
   def make_move(move)
     # TODO: polymorphism (player.make_a_move_at(i1, i2))
-    make_a_cross_at(move.row_index, move.column_index) if move.player == Player::ONE
-    make_a_circle_at(move.row_index, move.column_index) if move.player == Player::TWO
+    move.player.make_move_in(self, move.row_index, move.column_index)
+    # make_a_cross_at(move.row_index, move.column_index) if move.player == PlayerOne.new
+    # make_a_circle_at(move.row_index, move.column_index) if move.player == PlayerTwo.new
   end
-
-  private
 
   def make_a_cross_at(row_index, column_index)
     cell = get_cell_at(row_index, column_index)
@@ -42,6 +41,8 @@ class Board
     cell = get_cell_at(row_index, column_index)
     @cell_board[(row_index * 3) + column_index] = cell.mark_as_circle_cell
   end
+
+  private
 
   def get_cell_at(row_index, column_index)
     @cell_board[(row_index * 3) + column_index]

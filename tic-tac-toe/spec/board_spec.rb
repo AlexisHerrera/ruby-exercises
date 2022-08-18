@@ -13,7 +13,7 @@ describe 'Board' do
 
   it 'can change a cell to a Cross Cell' do
     board = Board.new
-    move_player_one = Move.new('0 0', Player::ONE)
+    move_player_one = Move.new('0 0', PlayerOne.new)
     board.make_move(move_player_one)
     expect(board.empty_at?(0, 0)).to eq false
     expect(board.cross_cell_at?(0, 0)).to eq true
@@ -21,7 +21,7 @@ describe 'Board' do
 
   it 'can change a cell to a Circle Cell' do
     board = Board.new
-    move_player_two = Move.new('0 0', Player::TWO)
+    move_player_two = Move.new('0 0', PlayerTwo.new)
     board.make_move(move_player_two)
     expect(board.empty_at?(0, 0)).to eq false
     expect(board.circle_cell_at?(0, 0)).to eq true
