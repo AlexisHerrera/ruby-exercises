@@ -13,9 +13,10 @@ describe 'Board analyzer' do
   end
 
   it 'should return true if the first row is filled with xs' do
-    board.make_move(Move.new('0 0', PlayerOne.new))
-    board.make_move(Move.new('0 1', PlayerOne.new))
-    board.make_move(Move.new('0 2', PlayerOne.new))
+    player_one = PlayerOne.new
+    board.make_move(Move.new(0, 0, player_one))
+    board.make_move(Move.new(0, 1, player_one))
+    board.make_move(Move.new(0, 2, player_one))
     analyzer = BoardAnalyzer.new(board)
     expect(analyzer.game_finished?).to eq true
   end

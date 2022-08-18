@@ -18,7 +18,9 @@ class TicTacToe
       print_board
       print_message_turn(turn)
       move_input = gets.chomp
-      @board.make_move(Move.new(move_input, get_player(turn)))
+      next if move_input.split.size != 2
+
+      @board.make_move(Move.new(index_row_parse(move_input), index_column_parse(move_input), get_player(turn)))
       turn += 1
       break if @board_analyzer.game_finished?
     end
@@ -45,5 +47,13 @@ class TicTacToe
 
   def get_player(turn)
     @players[turn % 2]
+  end
+
+  def index_row_parse(input)
+    input.split[0]
+  end
+
+  def index_column_parse(input)
+    input.split[1]
   end
 end
