@@ -5,6 +5,7 @@ require_relative 'move'
 require_relative 'player'
 require_relative 'board_analyzer'
 require_relative 'errors/board_errors'
+require_relative 'errors/move_errors'
 
 class TicTacToe
   def initialize
@@ -24,13 +25,14 @@ class TicTacToe
 
       begin
         @board.make_move(Move.new(index_row_parse(move_input), index_column_parse(move_input), get_player(turn)))
-      rescue OccupiedCellError
+      rescue OccupiedCellError, InvalidMove
         next
       end
 
       turn += 1
       break if @board_analyzer.game_finished?
     end
+    print_winner_message
   end
 
   # rubocop: enable Metrics/MethodLength:
@@ -63,5 +65,11 @@ class TicTacToe
 
   def index_column_parse(input)
     input.split[1]
+  end
+  def print_winner_message
+    print_board
+    puts 'Player one wins' if @board_analyzer.player_one_won?
+    puts 'Player two wins' if @board_analyzer.player_two_won?
+    puts "It's a draw, play again!" if @board_analyzer.draw?
   end
 end
