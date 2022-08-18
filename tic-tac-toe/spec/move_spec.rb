@@ -22,6 +22,7 @@ describe 'Move' do
   it 'should raise error when indexes are out of range' do
     expect { Move.new('100 200', Player::ONE) }.to raise_error(StandardError)
   end
+
   it 'should know which player is making a move' do
     move = Move.new('1 1', Player::ONE)
     expect(move.player).to eq Player::ONE

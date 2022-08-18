@@ -14,3 +14,4 @@ TicTacToe.new.start_game
 # 7. Sacar StandardError para Move y hacer uno menos genérico.
 # 8. Usar bundler (byebug, rubocop, rspec)
 # 9. Se está acoplando Player con make a move de Board?. Es necesario un test de integración?.
+# 10. En vez de hacer Move.new(string) hacer Move.new(idx1, idx2, player) (tal vez asumir PlayerOne como default?)

@@ -26,6 +26,7 @@ class Board
   end
 
   def make_move(move)
+    # TODO: polymorphism (player.make_a_move_at(i1, i2))
     make_a_cross_at(move.row_index, move.column_index) if move.player == Player::ONE
     make_a_circle_at(move.row_index, move.column_index) if move.player == Player::TWO
   end
