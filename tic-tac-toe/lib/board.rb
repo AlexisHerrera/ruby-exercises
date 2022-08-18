@@ -26,10 +26,9 @@ class Board
   end
 
   def make_move(move)
-    # TODO: polymorphism (player.make_a_move_at(i1, i2))
+    raise OccupiedCellError unless empty_at?(move.row_index, move.column_index)
+
     move.player.make_move_in(self, move.row_index, move.column_index)
-    # make_a_cross_at(move.row_index, move.column_index) if move.player == PlayerOne.new
-    # make_a_circle_at(move.row_index, move.column_index) if move.player == PlayerTwo.new
   end
 
   def make_a_cross_at(row_index, column_index)

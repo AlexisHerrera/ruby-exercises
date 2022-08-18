@@ -8,6 +8,7 @@ class BoardAnalyzer
   end
 
   def game_finished?
+    # There are 8 posible ways. rows(+3), columns (+3) and diagonals (+2)
     return true if @board.cross_cell_at?(0, 0) && @board.cross_cell_at?(0, 1) && @board.cross_cell_at?(0, 2)
 
     false

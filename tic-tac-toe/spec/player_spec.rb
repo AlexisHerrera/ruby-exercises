@@ -6,8 +6,8 @@ require_relative '../lib/player'
 require_relative '../lib/move'
 
 describe 'Player' do
-  let(:player_one) {PlayerOne.new}
-  let(:player_two) {PlayerTwo.new}
+  let(:player_one) { PlayerOne.new }
+  let(:player_two) { PlayerTwo.new }
 
   it 'player 1 marks a cell with a cross' do
     board = Board.new
